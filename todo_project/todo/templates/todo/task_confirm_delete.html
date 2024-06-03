@@ -1,0 +1,12 @@
+<!-- templates/todo/task_confirm_delete.html -->
+{% extends 'todo/base.html' %}
+
+{% block content %}
+<h2>Confirm Delete</h2>
+<p>Are you sure you want to delete the task "{{ task.title }}"?</p>
+<form method="POST">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a href="{% url 'task-list' %}" class="btn btn-secondary">Cancel</a>
+</form>
+{% endblock %}

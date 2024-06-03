@@ -1,0 +1,14 @@
+<!-- templates/todo/task_detail.html -->
+{% extends 'todo/base.html' %}
+
+{% block content %}
+<h2>{{ task.title }}</h2>
+<p>{{ task.description }}</p>
+<p>Status: {% if task.completed %}Completed{% else %}Pending{% endif %}</p>
+
+<a href="{% url 'task-update' task.pk %}" class="btn btn-primary">Edit</a>
+<form method="POST" action="{% url 'task-delete' task.pk %}" class="d-inline">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Delete</button>
+</form>
+{% endblock %}

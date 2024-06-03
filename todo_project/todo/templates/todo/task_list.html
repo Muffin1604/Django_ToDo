@@ -1,0 +1,31 @@
+<!-- templates/todo/task_list.html -->
+{% extends 'todo/base.html' %}
+
+{% block content %}
+<h2>Task List</h2>
+
+<form method="GET" action="{% url 'task-list' %}">
+    <input type="text" name="q" placeholder="Search tasks..." class="form-control">
+    <button type="submit" class="btn btn-primary mt-2">Search</button>
+</form>
+
+<a href="{% url 'task-create' %}" class="btn btn-success mt-3">Create New Task</a>
+
+<h3>Pending Tasks</h3>
+<ul class="list-group">
+    {% for task in pending_tasks %}
+        <li class="list-group-item">
+            <a href="{% url 'task-detail' task.pk %}">{{ task.title }}</a>
+        </li>
+    {% endfor %}
+</ul>
+
+<h3 class="mt-4">Completed Tasks</h3>
+<ul class="list-group">
+    {% for task in completed_tasks %}
+        <li class="list-group-item">
+            <a href="{% url 'task-detail' task.pk %}">{{ task.title }}</a>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

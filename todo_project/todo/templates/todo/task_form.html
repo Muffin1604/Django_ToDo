@@ -1,0 +1,11 @@
+<!-- templates/todo/task_form.html -->
+{% extends 'todo/base.html' %}
+
+{% block content %}
+<h2>{% if form.instance.pk %}Edit Task{% else %}Create Task{% endif %}</h2>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">{% if form.instance.pk %}Update{% else %}Create{% endif %}</button>
+</form>
+{% endblock %}
