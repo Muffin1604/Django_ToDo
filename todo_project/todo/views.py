@@ -4,6 +4,7 @@ from django.contrib.auth import login, logout, authenticate
 from .forms import UserRegisterForm,TaskForm
 from .models import Task
 from django.contrib.auth.decorators import login_required
+from django.db.models import Q
 
 #Function to register the user
 def register(request):
@@ -42,7 +43,9 @@ def logout_view(request):
 def task_list(request):
     query = request.GET.get('q')
     if query:
-        tasks = Task.objects.filter(user=request.user).filter(title__icontains=query)
+        tasks = Task.objects.filter(user=request.user).filter(
+            Q(title__icontains=query) | Q(description__icontains=query)
+        )
     else:
         tasks = Task.objects.filter(user=request.user)
 
