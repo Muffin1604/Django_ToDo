@@ -18,11 +18,16 @@ This is a simple To-Do application built with Django. It allows users to registe
    ```sh
    python manage.py migrate
 
-
-   
 5. Run the development server:
    ```sh
    python manage.py runserver
-6. Open your web browser and navigate to http://localhost:8000. 
+6. Open your web browser and navigate to http://localhost:8000.
+
+## Task Management Features:
+Allow users to create, update, and delete tasks.
+Allow users to mark tasks as completed.
+Display tasks in two categories: Pending and Completed.
+
+Implement search functionality to filter tasks based on keywords in the title 
 
 
