@@ -5,7 +5,7 @@ This is a simple To-Do application built with Django. It allows users to registe
 
 1. Clone the repository:
    ```sh
-   git clone <repository_url>
+   git clone https://github.com/Muffin1604/Django_ToDo.git
    cd todo_project
 2. Create a virtual environment and activate it:
    ```sh
